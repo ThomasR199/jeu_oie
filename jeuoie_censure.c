@@ -2855,7 +2855,7 @@ int case1(int* ligne, int* colonne, int cases, int* recule, int* avance, int dim
       *recule = 3;
     }
   } else if (cases == 56){ // Case 56 (calcul qui donne 3)
-    if (dim_a == 1) printf("Quelle est la valeur de pi selon la bible ? ");
+    if (dim_a == 1) printf("Quelle est la valeur de pi selon la bible (de Maxime) ? ");
     else if (dim_a == 2) printf("Quelle est la valeur de e selon l'approximation approximative ? ");
     else if (dim_a >= -3 && dim_a <= -1) printf("Quelle est la valeur de (-1)/(-exp(-1)) selon l'approximation approximative ? ");
     else if (dim_a == 7) printf("%d ? ",rand_max());

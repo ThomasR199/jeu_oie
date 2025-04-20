@@ -3763,6 +3763,7 @@ int main() {
       victoire = true;
     } else if (dim == 13){
       printf("BRAVO ! Vous avez gagné (fin n°10) (1 h d'attente en dimension de redirection) ! (Désolé pour ce jeu d'horreur)\n\n");
+      victoire = true;
     }
 
     avance_0 = 0; recule_0 = 0;

@@ -752,7 +752,7 @@ void ParolesRick(){
   else if (parole == 201) printf("you're\n");
   else if (parole == 202) printf("too\n");
   else if (parole == 203) printf("shy\n");
-  else if (parole == 204) printf("ton");
+  else if (parole == 204) printf("ton\n");
   else if (parole == 205) printf("say\n");
   else if (parole == 206) printf("it\n");
   else if (parole == 207) printf("(say\n");
@@ -3237,7 +3237,8 @@ int main() {
       printf("Bienvenue dans la prison de M. Jacob !\n");
       printf("Le temps s'est arrêté, la dimension négative ne change plus.\n");
       printf("Vous avez été jugé criminel par une erreur judiciaire (je crois) et emmené dans cette prison !\n");
-      printf("Votre objectif : s'évader avec le professeur C.\n\n");
+      if (!professeurC) printf("Votre objectif : s'évader avec le professeur C.\n\n");
+      else printf("Votre objectif : s'évader.\n\n");
       decouvertePJ = true;
     } else if (!decouverteIM && dim == 3){
       printf("Bienvenue dans la dimension imaginaire !\n");
@@ -3267,16 +3268,17 @@ int main() {
     } else if (!decouverteFA && dim == -7){
       printf("Bienvenue dans les backrooms de M. Faure !\n");
       printf("Comme il le dit si bien : c'est pas cher !\n");
-      printf("Votre objectif : gagner enfin je crois\n\n");
+      printf("Votre objectif : gagner enfin je crois...\n\n");
       decouverteFA = true;
     } else if (!decouverteJA && dim == 6){
       printf("Bienvenue dans les backrooms de M. Jansou !\n");
       printf("Ici, tout est clair !\n");
-      printf("Votre objectif : je sais pas\n\n");
+      printf("Votre objectif : je sais pas...\n\n");
       decouverteJA = true;
     } else if (!decouverteTR && dim == 7){
       printf("Bienvenue dans le fond du trou !\n");
-      printf("L'objectif est très simple : retourner dans les backrooms de M. Jansou.\n");
+      if (!decouverteJA) printf("L'objectif est très simple : retourner dans les backrooms de M. Jansou.\n");
+      else printf("L'objectif est très simple : sortir de là.\n");
       printf("Attention ! Les lettres vont se transform%d%d...\n\n",rand_max(),rand_max());
       decouverteTR = true;
     } else if (!decouverteBO && dim == -8){
@@ -3313,7 +3315,8 @@ int main() {
       printf("Multiplication d'argent : %f\n",money_give);
       printf("Multiplication de points : %f\n",points_give);
       printf("Secondes en moins : %f\n",second_less);
-      printf("Argent : %f,%f,%f,%f\n",argent.r,argent.i,argent.j,argent.c);
+      printf("Argent : %f,%f,%f,%f\n",argent.r+argent_save.r,argent.i+argent_save.i,argent.j+argent_save.j,argent.c+argent_save.c);
+      printf("Argent non sauvegardé : %f,%f,%f,%f\n",argent.r,argent.i,argent.j,argent.c);
       printf("Argent sauvegardé : %f,%f,%f,%f\n",argent_save.r,argent_save.i,argent_save.j,argent_save.c);
       printf("Points : %f\n",points_count);
       if (bitcoins > 0) {
@@ -3330,7 +3333,7 @@ int main() {
         }
       }
       printf("|\n");
-      printf("Temps de jeu : %ld\n",time(NULL)-t1);
+      printf("Temps de jeu : %ld secondes\n",time(NULL)-t1);
       printf("Mots de passe : ");
       for (int i = 0; i < 6; i += 1){
         if (mdp[i]) printf("| %d ",i+1);
@@ -3738,6 +3741,7 @@ int main() {
       victoire = true;
     } else if (dim == 13){
       printf("BRAVO ! Vous avez gagné (fin n°10) (1 h d'attente en dimension de redirection) ! (Désolé pour ce jeu d'horreur)\n\n");
+      victoire = true;
     }
 
     avance_0 = 0; recule_0 = 0;
